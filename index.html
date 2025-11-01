@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shri Aashapura Financial Services </title>
+  <meta name="description" content="Shri Aashapura Financial Services – Your trusted partner for Personal, Business, Home & Vehicle Loans, LAP, Working Capital/OD, Balance Transfer & Top‑Up." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:#0E3E8A; /* primary from logo */
+      --red:#E2262A;  /* accent from logo */
+      --ink:#0f172a;  /* text */
+      --muted:#64748b;/* secondary text */
+      --bg:#ffffff;   /* background */
+      --soft:#f1f5f9; /* soft background */
+      --ring: rgba(14,62,138,.15);
+      --shadow: 0 6px 24px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Poppins",system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    /* Header */
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+    .row{display:flex;align-items:center;justify-content:space-between}
+    nav a{color:var(--ink);text-decoration:none;font-weight:500;margin:0 14px}
+    nav a:hover{color:var(--blue)}
+    .brand{display:flex;align-items:center;gap:.75rem;padding:10px 0}
+    .brand img{height:48px;width:auto}
+    .brand strong{font-size:1rem;line-height:1.1;color:var(--blue)}
+    .cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;border:none;padding:.8rem 1.1rem;border-radius:999px;box-shadow:var(--shadow);cursor:pointer}
+    .cta.secondary{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+    .hamburger{display:none;border:1px solid #e2e8f0;border-radius:10px;padding:.55rem;background:#fff}
+    /* Mobile menu */
+    #menu{display:flex;align-items:center}
+    @media (max-width: 920px){
+      nav{display:none}
+      .hamburger{display:inline-flex}
+      #menu.open nav{display:flex;flex-direction:column;gap:12px;padding:12px 0}
+      #menu.open{position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid #e2e8f0}
+      #menu.open .cta{margin:0 20px 20px}
+    }
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#ffffff, #f8fafc 75%);padding:64px 0 32px}
+    .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px}
+    .headline{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0;color:var(--blue)}
+    .sub{color:var(--muted);font-weight:400;margin-top:10px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px}
+    .badge{border:1px solid #e2e8f0;border-radius:999px;padding:.45rem .75rem;background:#fff;color:#0f172a;font-size:.9rem}
+    .hero-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:18px 18px 6px;box-shadow:var(--shadow)}
+    .hero-card h3{margin:8px 0 6px;color:var(--ink)}
+    .hero-card small{color:var(--muted)}
+
+    /* Section */
+    section{padding:64px 0}
+    .section-title{font-size:clamp(22px,3vw,34px);margin:0 0 8px;color:var(--ink)}
+    .section-sub{margin:0 0 28px;color:var(--muted)}
+
+    /* Services grid */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+    .card h4{margin:4px 0 8px;color:var(--blue)}
+    .card p{margin:0;color:var(--muted)}
+    .pill{display:inline-block;border-radius:999px;padding:.28rem .6rem;border:1px solid #e2e8f0;background:var(--soft);font-size:.8rem;color:#0f172a;margin-bottom:8px}
+    @media (max-width: 920px){.cards{grid-template-columns:1fr}}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+    @media (max-width: 920px){.about{grid-template-columns:1fr}}
+    .about .box{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    @media (max-width: 920px){.contact{grid-template-columns:1fr}}
+    label{display:block;font-size:.9rem;margin:8px 0 6px}
+    input,select,textarea{width:100%;padding:.9rem;border:1px solid #e2e8f0;border-radius:12px;background:#fff;outline:0;box-shadow:0 0 0 0 var(--ring);transition:box-shadow .2s,border-color .2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 6px var(--ring)}
+    textarea{min-height:120px}
+    .note{font-size:.88rem;color:var(--muted)}
+
+    /* Footer */
+    footer{background:#0b1f4a;color:#fff;padding:32px 0;margin-top:32px}
+    footer a{color:#e2e8f0;text-decoration:none}
+    .footgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+    @media (max-width: 920px){.footgrid{grid-template-columns:1fr}}
+
+    /* Floating WhatsApp */
+    .wa{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;display:flex;align-items:center;gap:10px;font-weight:600;box-shadow:0 10px 24px rgba(2,6,23,.18)}
+    .wa svg{width:20px;height:20px;display:block}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="row">
+        <a class="brand" href="#home" aria-label="Shri Aashapura Financial Services">
+          <!-- Replace src with your logo path if needed. Keep file next to this HTML and use src='Logo White.jpg' -->
+          <img src="Logo White.jpg" alt="Shri Aashapura Financial Services logo" />
+          <strong>Shri Aashapura<br/>Financial Services</strong>
+        </a>
+        <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+        <div id="menu">
+          <nav role="navigation" aria-label="Primary">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact Us</a>
+          </nav>
+          <a class="cta" href="#contact">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <h1 class="headline">Fast, fair & transparent loans—tailored to your goals.</h1>
+          <p class="sub">From personal dreams to business growth, Shri Aashapura Financial Services connects you to the right lender with the right terms. Minimal paperwork, quick approvals, and honest guidance.</p>
+          <div class="badges">
+            <span class="badge">✔ Multiple Banks & NBFCs</span>
+            <span class="badge">✔ Low Interest Options</span>
+            <span class="badge">✔ Doorstep Documentation</span>
+          </div>
+          <a class="cta" href="#contact">Get a Free Eligibility Check</a>
+          <a class="cta secondary" href="#services">Explore Services</a>
+        </div>
+        <div class="hero-card">
+          <small>Quick Quote</small>
+          <h3>Tell us what you need</h3>
+          <form id="quickForm" aria-label="Quick quote form">
+            <label for="qname">Full Name</label>
+            <input id="qname" name="name" placeholder="Your name" required>
+
+            <label for="qmobile">Mobile Number</label>
+            <input id="qmobile" name="mobile" placeholder="+91‑XXXXXXXXXX" pattern="[0-9+\-\s]{8,}" required>
+
+            <label for="qtype">Loan Type</label>
+            <select id="qtype" name="loan_type" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Personal Loan</option>
+              <option>Business Loan</option>
+              <option>Home Loan</option>
+              <option>Loan Against Property</option>
+              <option>Vehicle/Car Loan</option>
+              <option>Education Loan</option>
+              <option>Gold Loan</option>
+              <option>Working Capital / OD</option>
+              <option>Balance Transfer / Top‑Up</option>
+            </select>
+
+            <label for="qamount">Approx. Amount (₹)</label>
+            <input id="qamount" name="amount" placeholder="Ex: 10,00,000">
+
+            <div style="display:flex;gap:10px;margin:16px 0 6px">
+              <button type="submit" class="cta" style="flex:1">Request Call</button>
+              <a class="cta secondary" style="flex:1;text-align:center" href="#contact">Full Form</a>
+            </div>
+            <p class="note">By submitting, you agree to be contacted for loan assistance.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">End‑to‑end guidance—from eligibility to disbursal—across leading banks & NBFCs.</p>
+      <div class="cards">
+        <article class="card"><span class="pill">Personal Loan</span><h4>Unsecured funds in days</h4><p>For travel, weddings, medical or any personal need. Flexible tenure, quick KYC.</p></article>
+        <article class="card"><span class="pill">Business Loan</span><h4>Fuel your growth</h4><p>Term loans, OD/CC, invoice financing for MSMEs & SMEs with lean paperwork.</p></article>
+        <article class="card"><span class="pill">Home Loan</span><h4>Own your dream home</h4><p>Best‑fit lenders for purchase, construction, and balance transfer at lower EMIs.</p></article>
+        <article class="card"><span class="pill">Loan Against Property</span><h4>Leverage your asset</h4><p>Raise higher ticket sizes against residential/commercial properties.</p></article>
+        <article class="card"><span class="pill">Vehicle Loan</span><h4>New & used vehicles</h4><p>Attractive rates for cars, two‑wheelers, and commercial vehicles.</p></article>
+        <article class="card"><span class="pill">Education Loan</span><h4>Invest in learning</h4><p>Funding for Indian & overseas education with moratorium options.</p></article>
+        <article class="card"><span class="pill">Gold Loan</span><h4>Instant liquidity</h4><p>Lowest documentation, quick disbursal against your gold.</p></article>
+        <article class="card"><span class="pill">Balance Transfer & Top‑Up</span><h4>Reduce your EMI</h4><p>Move to better rates and avail top‑up to meet new needs.</p></article>
+        <article class="card"><span class="pill">Working Capital / OD</span><h4>Smooth cash flow</h4><p>OD/CC limits tailored to your business seasonality and receivables.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="background:var(--soft)">
+    <div class="wrap about">
+      <div class="box">
+        <h2 class="section-title">About Shri Aashapura Financial Services</h2>
+        <p>We are a loan advisory and distribution firm helping individuals and businesses access the right finance at the right time. Our team works with multiple banks and NBFCs to compare offers and structure applications for higher approval chances and better terms.</p>
+        <ul>
+          <li>Transparent advice. No hidden charges.</li>
+          <li>Multiple lender options with best available rates.</li>
+          <li>Doorstep service for documentation & pickup.</li>
+          <li>End‑to‑end support till disbursal—and beyond.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3 style="margin-top:0;color:var(--blue)">Why Clients Choose Us</h3>
+        <p class="note">A few ways we make the process seamless:</p>
+        <div class="cards" style="grid-template-columns:1fr 1fr;gap:12px">
+          <div class="card"><h4>Speed</h4><p>Quick eligibility check and pre‑assessment to save time.</p></div>
+          <div class="card"><h4>Savings</h4><p>Better rates & charges by comparing multiple lenders.</p></div>
+          <div class="card"><h4>Support</h4><p>Single point of contact. We coordinate with the bank.</p></div>
+          <div class="card"><h4>Compliance</h4><p>Clean paperwork to avoid delays or rejections.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-sub">Tell us about your requirement. We’ll call you back with the best options.</p>
+        <form id="contactForm" aria-label="Contact form">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" placeholder="Your name" required>
+
+          <label for="phone">Mobile Number</label>
+          <input id="phone" name="phone" placeholder="+91‑XXXXXXXXXX" pattern="[0-9+\-\s]{8,}" required>
+
+          <label for="email">Email (optional)</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com">
+
+          <label for="loan">Loan Type</label>
+          <select id="loan" name="loan" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Personal Loan</option>
+            <option>Business Loan</option>
+            <option>Home Loan</option>
+            <option>Loan Against Property</option>
+            <option>Vehicle/Car Loan</option>
+            <option>Education Loan</option>
+            <option>Gold Loan</option>
+            <option>Working Capital / OD</option>
+            <option>Balance Transfer / Top‑Up</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Share your requirement or questions..."></textarea>
+
+          <button class="cta" type="submit">Submit Enquiry</button>
+          <p class="note">You can also reach us on WhatsApp using the green button below.</p>
+        </form>
+      </div>
+      <aside>
+        <div class="card" style="height:100%">
+          <h4 style="margin-top:0">Office</h4>
+          <p>Shri Aashapura Financial Services<br/>Neel Kamal Complex, Ahmedabad, Gujarat, India</p>
+          <p><strong>Phone:</strong> +91‑8140010349<br/><strong>Email:</strong> mb.irctc22@gmail.com</p>
+          <h4>Working Hours</h4>
+          <p>Mon – Sat: 10:00 AM – 7:00 PM</p>
+          <h4>Documents We Help Arrange</h4>
+          <ul>
+            <li>KYC (PAN, Aadhaar)</li>
+            <li>Income Proof (ITR/Salary Slips)</li>
+            <li>Bank Statements</li>
+            <li>Property Papers (where applicable)</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footgrid">
+      <div>
+        <div class="brand" style="padding:0 0 10px">
+          <img src="Logo White.jpg" alt="Shri Aashapura Financial Services logo" style="filter:brightness(100%);background:#fff;border-radius:8px;padding:4px" />
+          <strong style="color:#fff">Shri Aashapura<br/>Financial Services</strong>
+        </div>
+        <p style="margin-top:0">Trusted partners for loans and credit solutions. © <span id="year"></span> Shri Aashapura Financial Services. All rights reserved.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#about">About Us</a><br><a href="#services">Services</a><br><a href="#contact">Contact</a></p>
+      </div>
+      <div>
+        <h4>Compliance</h4>
+        <p class="note">We act as loan facilitators/DSA with partner Banks/NBFCs. Loan sanction, rate and tenure are at the sole discretion of the lender after verification.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button (update number) -->
+  <a class="wa" href="https://wa.me/918140010349?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20a%20loan" target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M19.11 17.37c-.28-.14-1.67-.83-1.93-.92-.26-.1-.45-.14-.64.14-.19.28-.73.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.62-1.54-1.89-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.49-.64-.5h-.55c-.19 0-.5.07-.76.35-.26.28-1 1-1 2.45 0 1.44 1.02 2.83 1.16 3.03.14.19 2 3.05 4.86 4.28.68.29 1.21.46 1.63.59.68.22 1.3.19 1.79.12.55-.08 1.67-.68 1.9-1.34.23-.66.23-1.23.16-1.34-.07-.11-.26-.18-.54-.32z"/></svg>
+    WhatsApp Us
+  </a>
+
+  <script>
+    // Sticky mobile menu toggle
+    const burger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    burger?.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Simple client-side handlers
+    function serialize(form){
+      const data = new FormData(form); const o = {}; data.forEach((v,k)=>o[k]=v); return o;
+    }
+
+    function openMail(data){
+      const subject = encodeURIComponent('Loan Enquiry – ' + (data.loan_type || data.loan || ''));
+      const body = encodeURIComponent(`Name: ${data.name || ''}\nPhone: ${data.mobile || data.phone || ''}\nEmail: ${data.email || ''}\nLoan Type: ${data.loan_type || data.loan || ''}\nAmount: ${data.amount || ''}\nMessage: ${data.message || ''}`);
+      window.location.href = `mailto:contact@aashapurafinance.in?subject=${subject}&body=${body}`;
+    }
+
+    document.getElementById('quickForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = serialize(e.target);
+      openMail(data);
+      alert('Thank you! We\'ll call you shortly.');
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = serialize(e.target);
+      openMail(data);
+      alert('Your enquiry has been prepared in your email app. Please send it to complete.');
+    });
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Optional: LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Shri Aashapura Financial Services",
+    "url": "https://your-domain.example/",
+    "logo": "Logo White.jpg",
+    "areaServed": "India",
+    "telephone": "+91XXXXXXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    },
+    "serviceType": ["Personal Loan","Business Loan","Home Loan","Loan Against Property","Vehicle Loan","Education Loan","Gold Loan","Working Capital / OD","Balance Transfer / Top-Up"]
+  }
+  </script>
+</body>
+</html>
